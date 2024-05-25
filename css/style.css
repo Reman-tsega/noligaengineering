@@ -224,7 +224,10 @@
 .page-header {
     background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url(../img/noliga_logo.png) center center no-repeat;
     background-size: cover;
-    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 30vh;
+    /* height: 100vh; */
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
