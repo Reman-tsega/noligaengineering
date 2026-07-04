@@ -143,7 +143,6 @@ background-color: red;
 .navbar.sticky-top {
     top: -100px;
     transition: .5s;
-    height: 10vh;
 }
 
 .navbar .navbar-brand,
@@ -218,12 +217,19 @@ background-color: red;
     }
 }
 
-.display-2{
-background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat center center;
-
+/*** Header ***/
+.header-carousel .owl-carousel-item {
+    position: relative;
 }
 
-/*** Header ***/
+.header-carousel .owl-carousel-item > img {
+    width: 100%;
+    height: calc(100vh - 145px);
+    min-height: 450px;
+    max-height: 800px;
+    object-fit: cover;
+}
+
 .owl-carousel-inner {
     position: absolute;
     width: 100%;
@@ -232,54 +238,57 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat c
     left: 0;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, .1);
-}
-.owl-carousels-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, .1);
-}
-.img-fluids{
-    /* width:auto; */
-    height: 85vh;
-    /* object-fit: cover; */
+    background: linear-gradient(90deg, rgba(26, 42, 54, .85) 0%, rgba(26, 42, 54, .55) 45%, rgba(26, 42, 54, .2) 100%);
 }
 
-@media (max-width: 768px) {
-    .header-carousel .owl-carousel-item {
-        position: relative;
-        min-height: 500px;
+.hero-caption h1 {
+    font-size: clamp(2rem, 4vw + .75rem, 3.75rem);
+    line-height: 1.2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+}
+
+.hero-caption p {
+    max-width: 620px;
+    font-size: clamp(1rem, .4vw + .9rem, 1.25rem);
+    line-height: 1.8;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+}
+
+@media (max-width: 767.98px) {
+    .header-carousel .owl-carousel-item > img {
+        height: calc(100vh - 100px);
+        min-height: 480px;
+        max-height: 640px;
     }
 
-    .header-carousel .owl-carousel-item img {
-        position: absolute;
+    .hero-caption .btn {
+        padding: .75rem 2.25rem !important;
+    }
+
+    /* Turn the side thumbnail dots into small dots along the bottom */
+    .header-carousel .owl-dots {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        top: auto;
+        right: 0;
+        bottom: 20px;
+        flex-direction: row;
     }
 
-    .header-carousel .owl-carousel-item p {
-        font-size: 16px !important;
-    }
-    .header-carousel .owl-carousels-item {
-        position: relative;
-        min-height: 500px;
-    }
-
-    .header-carousel .owl-carousels-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .header-carousel .owl-dots .owl-dot,
+    .header-carousel .owl-dots .owl-dot.active {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        box-shadow: none;
     }
 
-    .header-carousel .owl-carousels-item p {
-        font-size: 16px !important;
+    .header-carousel .owl-dots .owl-dot.active {
+        background: var(--primary);
+    }
+
+    .header-carousel .owl-dots .owl-dot img {
+        display: none;
     }
 }
 
@@ -322,12 +331,13 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat c
 }
 
 .page-header {
-    z-index: 10000;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/noliga_logo2.png') no-repeat center center;
-    background-size: contain;
-    height: 50vh;
+    background: linear-gradient(rgba(26, 42, 54, .75), rgba(26, 42, 54, .5)), url('../img/rewnable_enegry_image.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 50vh;
     width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .page-header .container {
@@ -337,16 +347,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat c
 
 @media (max-width: 768px) {
     .page-header {
-    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/noliga_logo.png) center center no-repeat;
-
-        background-size: contain; /* Adjust this value as needed for smaller screens */
-        height: 40vh; /* Adjust this value as needed for smaller screens */
-        width: 100%;
-        align-items: center;
-        
-    }
-    .page-header div{
-        margin-top: 80px;
+        min-height: 35vh;
     }
 }
 
@@ -510,6 +511,21 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat c
     position: relative;
 }
 
+.portfolio-img img,
+.portfolio-img video {
+    width: 100%;
+    object-fit: cover;
+}
+
+.portfolio-container .portfolio-img img {
+    height: 300px;
+}
+
+.footer .portfolio-img img,
+.footer .portfolio-img video {
+    height: 100px;
+}
+
 .portfolio-img::before,
 .portfolio-img::after {
     position: absolute;
@@ -591,6 +607,8 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), no-repeat c
 #team-img{
     width: 200px;
     height: 300px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .team-item img {
